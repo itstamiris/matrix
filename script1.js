@@ -52,12 +52,12 @@ button.addEventListener('click', function() {
     let d2 = determinator_calculating(replaceColumn(matrix, 1, [a1Value, a2Value, a3Value]));
     let d3 = determinator_calculating(replaceColumn(matrix, 2, [a1Value, a2Value, a3Value]));
 
-    // Используем библиотеку Fraction.js для представления ответов как дробей
-    let fractionX = new Fraction(d1).div(d);
-    let fractionY = new Fraction(d2).div(d);
-    let fractionZ = new Fraction(d3).div(d);
+    // Решение системы
+    const x = d1 / d;
+    const y = d2 / d;
+    const z = d3 / d;
 
-    // Выводим ответы в виде дробей
-    answer_text.innerHTML = `x = ${fractionX.toFraction(true)}, y = ${fractionY.toFraction(true)}, z = ${fractionZ.toFraction(true)}`;
+    // Выводим ответы
+    answer_text.innerHTML = `x = ${x}, y = ${y}, z = ${z}`;
 });
 
