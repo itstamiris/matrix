@@ -28,7 +28,6 @@ function replaceColumn(matrix, columnIndex, newColumn) {
 }
 
 button.addEventListener('click', function() {
-    // Преобразуем значения из текстовых полей в числа
     const x1Value = parseFloat(x1.value);
     const y1Value = parseFloat(y1.value);
     const z1Value = parseFloat(z1.value);
@@ -43,21 +42,17 @@ button.addEventListener('click', function() {
     const a2Value = parseFloat(a2.value);
     const a3Value = parseFloat(a3.value);
 
-    // Создаем новую матрицу на основе введенных значений
     let matrix = [[x1Value, y1Value, z1Value], [x2Value, y2Value, z2Value], [x3Value, y3Value, z3Value]];
 
-    // Вычисляем детерминанты
     let d = determinator_calculating(matrix);
     let d1 = determinator_calculating(replaceColumn(matrix, 0, [a1Value, a2Value, a3Value]));
     let d2 = determinator_calculating(replaceColumn(matrix, 1, [a1Value, a2Value, a3Value]));
     let d3 = determinator_calculating(replaceColumn(matrix, 2, [a1Value, a2Value, a3Value]));
 
-    // Решение системы
     const x = d1 / d;
     const y = d2 / d;
     const z = d3 / d;
 
-    // Выводим ответы
     answer_text.innerHTML = `x = ${x}, y = ${y}, z = ${z}`;
 });
 
